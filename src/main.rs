@@ -1,9 +1,9 @@
 fn main() {
-    let  array:[u32;8] = [1,3,42,5,6,7,68,19];   
+    let  array:[u32;5] = [1,5,7,8,11];   
     let sum = sum_compute(&array);
     match sum{
-        None=>println!("this is a error."),
-        Some(value)=>println!("The summer value of this array is {}", value)
+        None=>println!(" error."),
+        Some(value)=>println!("The summer value or array is {}", value)
     }
 }
 
