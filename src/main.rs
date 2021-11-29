@@ -1,17 +1,13 @@
 fn main() {
-    let  array:[u32;5] = [1,5,7,8,11];   
-    let sum = sum_compute(&array);
-    match sum{
-        None=>println!(" error."),
-        Some(value)=>println!("The summer value or array is {}", value)
-    }
+    let a = [10, 20, 30, 100, 40, 50, i32::MAX];
+    println!("{:#?}",try_sum(&a));
+    
+    let a = [10, 20, 30, 100, 40, 50, 500];
+    println!("{:#?}",try_sum(&a));
 }
 
-
-fn sum_compute(p_array:&[u32])->Option<u32>{
-    let mut sum: u32 = 0;
-    for i in p_array.iter(){
-        sum += i
-    }
-    Some(sum)
+fn try_sum(a: &[i32]) -> Option<i32> {
+    let mut it = a.iter();
+    let sum = it.try_fold(0i32, |acc, &x| acc.checked_add(x));
+    sum
 }
